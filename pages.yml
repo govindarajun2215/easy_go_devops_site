@@ -1,0 +1,26 @@
+
+# easy_go_devops – GitHub Pages Site
+
+A simple static site that lists the latest videos from the **easy_go_devops** YouTube channel. Built at deploy-time from the channel RSS and hosted on **GitHub Pages**.
+
+## Quick start
+
+1. **Create a GitHub repo** (e.g., `easy_go_devops_site`) and push these files.
+2. In the repo, go to **Settings → Secrets and variables → Actions → Variables** and add:
+   - `CHANNEL_ID` = `UCxxxxxxxxxxxxxxxx` (your YouTube Channel ID)
+3. Go to **Settings → Pages** and set **Source = GitHub Actions**.
+4. Push to `main` and wait for the workflow to finish. Your site will be available at:
+   `https://<your-username>.github.io/easy_go_devops_site/`
+
+## Local preview
+
+```bash
+npm run build
+npx http-server public -p 8080 -c-1
+# open http://localhost:8080
+```
+
+## Customize
+- Edit colors in `public/styles.css`.
+- Update links in `public/index.html`.
+- The workflow refreshes videos every 6 hours. Adjust the CRON in `.github/workflows/pages.yml` as needed.
